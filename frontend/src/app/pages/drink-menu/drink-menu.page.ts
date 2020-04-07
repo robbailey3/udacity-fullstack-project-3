@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-drink-menu',
   templateUrl: './drink-menu.page.html',
-  styleUrls: ['./drink-menu.page.scss'],
+  styleUrls: ['./drink-menu.page.scss']
 })
 export class DrinkMenuPage implements OnInit {
   Object = Object;
@@ -16,7 +16,7 @@ export class DrinkMenuPage implements OnInit {
     private auth: AuthService,
     private modalCtrl: ModalController,
     public drinks: DrinksService
-    ) { }
+  ) {}
 
   ngOnInit() {
     this.drinks.getDrinks();
@@ -34,5 +34,4 @@ export class DrinkMenuPage implements OnInit {
 
     modal.present();
   }
-
 }

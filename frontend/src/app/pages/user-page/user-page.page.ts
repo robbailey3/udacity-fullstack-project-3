@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.page.html',
-  styleUrls: ['./user-page.page.scss'],
+  styleUrls: ['./user-page.page.scss']
 })
 export class UserPagePage implements OnInit {
   loginURL: string;
@@ -13,7 +13,5 @@ export class UserPagePage implements OnInit {
     this.loginURL = auth.build_login_link('/tabs/user-page');
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
