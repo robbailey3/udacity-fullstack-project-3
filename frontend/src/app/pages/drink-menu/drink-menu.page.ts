@@ -18,11 +18,11 @@ export class DrinkMenuPage implements OnInit {
     public drinks: DrinksService
   ) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.drinks.getDrinks();
   }
 
-  async openForm(activedrink: Drink = null) {
+  public async openForm(activedrink: Drink = null) {
     if (!this.auth.can('get:drinks-detail')) {
       return;
     }

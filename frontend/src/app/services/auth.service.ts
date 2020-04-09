@@ -19,7 +19,7 @@ export class AuthService {
 
   constructor() {}
 
-  build_login_link(callbackPath = '') {
+  public buildLoginLink(callbackPath = '') {
     let link = 'https://';
     link += this.url + '.auth0.com';
     link += '/authorize?';
@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   // invoked in app.component on load
-  check_token_fragment() {
+  public checkTokenFragment() {
     // parse the fragment
     const fragment = window.location.hash.substr(1).split('&')[0].split('=');
     // check if the fragment includes the access token
@@ -39,41 +39,41 @@ export class AuthService {
       // add the access token to the jwt
       this.token = fragment[1];
       // save jwts to localstore
-      this.set_jwt();
+      this.setJWT();
     }
   }
 
-  set_jwt() {
+  public setJWT() {
     localStorage.setItem(JWTS_LOCAL_KEY, this.token);
     if (this.token) {
       this.decodeJWT(this.token);
     }
   }
 
-  load_jwts() {
+  public loadJwts() {
     this.token = localStorage.getItem(JWTS_LOCAL_KEY) || null;
     if (this.token) {
       this.decodeJWT(this.token);
     }
   }
 
-  activeJWT() {
+  public activeJWT() {
     return this.token;
   }
 
-  decodeJWT(token: string) {
+  public decodeJWT(token: string) {
     const jwtservice = new JwtHelperService();
     this.payload = jwtservice.decodeToken(token);
     return this.payload;
   }
 
-  logout() {
+  public logout() {
     this.token = '';
     this.payload = null;
-    this.set_jwt();
+    this.setJWT();
   }
 
-  can(permission: string) {
+  public can(permission: string) {
     return (
       this.payload &&
       this.payload.permissions &&

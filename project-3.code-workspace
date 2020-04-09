@@ -5,6 +5,7 @@
     }
   ],
   "settings": {
-    "eslint.workingDirectories": ["./frontend/"]
+    "eslint.workingDirectories": ["./frontend/"],
+    "python.venvPath": "./backend/venv"
   }
 }
